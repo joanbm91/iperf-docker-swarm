@@ -18,9 +18,10 @@ Deploy from a swarm manager node:
 2- Modify the proxyserver serving requests
 
    Modify /etc/haproxy/haproxy.cfg
-   NOTE: HAproxy is running on external server and not on the same docker-swarm server.
    
-   But you can add it if neccesary on the same docker-swarm cluster where the iperf service with the following configuration:
+   NOTE: On my running environment HAproxy is running on external server and not on the same docker-swarm server.
+   
+  you can add it if neccesary on the same docker-swarm cluster where the iperf service with the following configuration:
    ```
    haproxy:
     image: haproxy:latest
