@@ -16,10 +16,28 @@ Deploy from a swarm manager node:
 1- Modify the docker-compose file adding more iperf servers running on different port
 
 2- Modify the proxyserver serving requests
-    
-    - devproxypre01 (development -> swarm dev cluster)
-    - devproxypro01 (production -> swarm pro cluster)
+
    Modify /etc/haproxy/haproxy.cfg
+   NOTE: HAproxy is running on external server and not on the same docker-swarm server.
+   
+   But you can add it if neccesary on the same docker-swarm cluster where the iperf service with the following configuration:
+   ```
+   haproxy:
+    image: haproxy:latest
+    volumes:
+        - ./haproxy:/usr/local/etc/haproxy # route to configuration file haproxy.cfg
+    ports:
+        - "5202:5202"  
+        - "5204:5204"
+        - "5205:5205"
+        - "5206:5206"
+    expose:
+        - 5202
+        - 5204
+        - 5205
+        - 5206
+
+        ```
 
 3- Restart haproxy service
 > service haproxy restart
