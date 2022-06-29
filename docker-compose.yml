@@ -1,26 +1,26 @@
 version: "3.3"
-#Juan Borras - juan.borras@omniaccess.com
+#Juan Borras 
 
 services:
   iperf3-server5202:
-    image: gitlab.omniaccess.com:5001/development/iperf:latest
+    image: gitlab.domain.com:5001/development/iperf:latest
     command: iperf3 -s -p 5202 -1
     ports:
       - 5202:5202
     networks:
-      - oa-iperf
+      - iperf
     deploy:
       placement:
         constraints:
           - node.labels.hostname == manager1
 
   iperf3-server5203:
-    image: gitlab.omniaccess.com:5001/development/iperf:latest
+    image: gitlab.domain.com:5001/development/iperf:latest
     command: iperf3 -s -p 5203 -1
     ports:
       - 5203:5203
     networks:
-      - oa-iperf
+      - iperf
     deploy:
       placement:
         constraints:
@@ -28,24 +28,24 @@ services:
 
 
   iperf3-server5204:
-    image: gitlab.omniaccess.com:5001/development/iperf:latest
+    image: gitlab.domain.com:5001/development/iperf:latest
     command: iperf3 -s -p 5204 -1
     ports:
       - 5204:5204
     networks:
-      - oa-iperf
+      - iperf
     deploy:
       placement:
         constraints:
           - node.labels.hostname == worker1
 
   iperf3-server5205:
-    image: gitlab.omniaccess.com:5001/development/iperf:latest
+    image: gitlab.domain.com:5001/development/iperf:latest
     command: iperf3 -s -p 5205 -1
     ports:
       - 5205:5205
     networks:
-      - oa-iperf
+      - iperf
     deploy:
       placement:
         constraints:
@@ -53,12 +53,12 @@ services:
 
 
   iperf3-server5206:
-    image: gitlab.omniaccess.com:5001/development/iperf:latest
+    image: gitlab.domain.com:5001/development/iperf:latest
     command: iperf3 -s -p 5206 -1
     ports:
       - 5206:5206
     networks:
-      - oa-iperf
+      - iperf
     deploy:
       placement:
         constraints:
@@ -66,12 +66,12 @@ services:
  
 
   iperf3-server5207:
-    image: gitlab.omniaccess.com:5001/development/iperf:latest
+    image: gitlab.domain.com:5001/development/iperf:latest
     command: iperf3 -s -p 5207 -1
     ports:
       - 5207:5207
     networks:
-      - oa-iperf
+      - iperf
     deploy:
       placement:
         constraints:
@@ -79,5 +79,5 @@ services:
 
 
 networks:
-  oa-iperf:
+  iperf:
     external: true
